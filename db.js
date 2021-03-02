@@ -24,7 +24,7 @@ module.exports = class db {
 				if (array[i].includes(`${args}`)) {
 					var split = array[i].replace(`${args}\u200b`, '');
 					try {
-						if (action === 'number') {
+						if (action.toLowerCase() === 'number') {
 							if (Number.isNaN(parseInt(split))) return split;
 							return parseInt(split);
 						} else {

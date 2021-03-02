@@ -18,12 +18,21 @@ function get(args) {
 };
 
 module.exports = class db {
-	get(args, value) {
+	get(args, action) {
 		try {
 			for (var i = 0; i < array.length; i++) {
 				if (array[i].includes(`${args}`)) {
 					var split = array[i].replace(`${args}\u200b`, '');
-					return split;
+					try {
+						if (action === 'number') {
+							if (Number.isNaN(parseInt(split))) return split;
+							return parseInt(split);
+						} else {
+							return split;
+						}
+					} catch (error) {
+						return split;
+					}
 				};
 			};
 

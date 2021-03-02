@@ -6,12 +6,7 @@ module.exports = class db {
 			for (var i = 0; i < array.length; i++) {
 				if (array[i].includes(`${args}`)) {
 					var split = array[i].replace(`${args}\u200b`, '');
-					var output = parseInt(split)
-					if (output== NaN) {
-						return split;
-					} else {
-						return output;
-					}
+					return split;
 				};
 			};
 
